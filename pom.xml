@@ -8,7 +8,7 @@
         <version>7</version>
     </parent>
     <properties>
-        <revision>0.2.5</revision>
+        <revision>0.2.8-SNAPSHOT</revision>
         <maven_javadoc_version>3.0.1</maven_javadoc_version>
         <maven_surefire_version>2.19.1</maven_surefire_version>
         <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
@@ -148,16 +148,39 @@
         </plugins>
     </build>
 
+    <!--仓储管理-->
     <distributionManagement>
-        <snapshotRepository>
-            <!-- 这里的ID一定要在maven setting文件中存在于server下的ID -->
-            <id>sona</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-        </snapshotRepository>
         <repository>
-            <id>sona</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>storm-nexus-releases</id>
+            <url>https://nexus.gaodunwangxiao.com/repository/maven-releases</url>
         </repository>
+        <snapshotRepository>
+            <id>storm-nexus-snapshots</id>
+            <url>https://nexus.gaodunwangxiao.com/repository/maven-snapshots</url>
+        </snapshotRepository>
     </distributionManagement>
+    <repositories>
+        <repository>
+            <id>maven-central-gaodun</id>
+            <name>maven-central-gaodun.</name>
+            <url>https://nexus.gaodunwangxiao.com/repository/maven-central</url>
+        </repository>
+        <repository>
+            <id>maven-releases-gaodun</id>
+            <name>maven-releases-gaodun.</name>
+            <url>https://nexus.gaodunwangxiao.com/repository/maven-releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>maven-snapshots-gaodun</id>
+            <name>maven-snapshots-gaodun.</name>
+            <url>https://nexus.gaodunwangxiao.com/repository/maven-snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>
